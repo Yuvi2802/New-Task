@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Qualification</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let obj of getArray.sort(); let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ obj.name }}</td>
+        <td>{{ obj.age }}</td>
+        <td>{{ obj.qualification }}</td>
+        <td>
+          <button routerLink="/form/{{ obj.id }}" class="btn btn-success">
+            Edit</button
+          ><button class="btn btn-danger ml-2" (click)="delete(i)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,68 @@
+<div class="container">
+  <form [formGroup]="form">
+    <div class="row justify-content-center">
+      <div class="card w-50 shadow round mt-5">
+        <h2 class="text-center mt-3">Form</h2>
+
+        <div class="card-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              formControlName="name"
+              placeholder="Enter Name"
+              name="name"
+              [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+            />
+            <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+              <div *ngIf="f['name'].errors['required']">*Required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input
+              type="number"
+              class="form-control"
+              id="age"
+              formControlName="age"
+              placeholder="Enter Age"
+              name="age"
+              [ngClass]="{ 'is-invalid': submitted && f['age'].errors }"
+            />
+            <div *ngIf="submitted && f['age'].errors" class="invalid-feedback">
+              <div *ngIf="f['age'].errors['required']">*Required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="qualification">Qualification</label>
+            <input
+              type="text"
+              class="form-control"
+              id="qualification"
+              formControlName="qualification"
+              placeholder="Enter Qualification"
+              name="qualification"
+              [ngClass]="{
+                'is-invalid': submitted && f['qualification'].errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f['qualification'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['qualification'].errors['required']">*Required</div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+              {{ buttonText }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
